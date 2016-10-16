@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Baemax</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="onsenui.js"></script>
+		<script src="ui.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="onsenui.css">
+		<link rel="stylesheet" type="text/css" href="onsen-css-components.css">
+		<link rel="stylesheet" type="text/css" href="custom.css">
+	</head>
+	<body data-device-back-button-handler-id="0" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+
+		<ons-page>
+
+			<ons-toolbar>
+				<div class="left">
+					<ons-toolbar-button><a href="index.html"><ons-icon icon="times"></ons-icon></a></ons-toolbar-button>
+				</div>
+				<div class="center">Reading List</div>
+			</ons-toolbar>
+
+			<ons-list>
+				<div class="news-list">
+					<div class="preloader">Loading...</div>
+				</div>
+			</ons-list>
+
+		</ons-page>
+
+		<script>
+			$.post("data/feed.php", {
+				
+			}, function(result) {
+				if (result != "") {
+					setTimeout(function() {
+						$(".news-list").html(result);
+					}, 1);
+				}
+			});
+		</script>
+
+	</body>
+</html>

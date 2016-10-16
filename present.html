@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Naari Demo</title>
+		<style>
+			body { margin: 10px 0 0 0; text-align: center; user-select: none; -webkit-user-select: none; }
+			.naari { position: relative; }
+			iframe { position: absolute; left: 50%; transform: translateX(-50%); background: #fff; border: 0; overflow: hidden; }
+		</style>
+	</head>
+	<body>
+		<div class="naari">
+			<img alt="iPhone" src="img/iphone.png" draggable="false">
+			<iframe src="index.html"></iframe>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script>
+			$(".naari img").css("height", window.innerHeight - 20);
+			$("iframe").css("width", $(".naari img").width() * 0.9);
+			$("iframe").css("top", window.innerHeight*0.11);
+			$("iframe").css("height", window.innerHeight - window.innerHeight*0.255);
+		</script>
+	</body>
+</html>

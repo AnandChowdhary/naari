@@ -1,0 +1,81 @@
+<div>
+	<h2>Test</h2>
+	<p>
+		<label>How many hours did you wear the tampon?</label>
+		<select id="hours">
+			<option>0-3</option>
+			<option>&gt;3</option>
+		</select>
+	</p>
+	<p>
+		<label>Did you experience a leak while wearing the tampon?</label>
+		<select id="leak">
+			<option>yes</option>
+			<option>no</option>
+		</select>
+	</p>
+	<p>
+		<label>Did you experience and discomfort during removal?</label>
+		<select id="discomfort">
+			<option>yes</option>
+			<option>no</option>
+		</select>
+	</p>
+	<p>
+		<label>During the next few hours, do you expect your flow to:</label>
+		<select id="flow">
+			<option>decrease</option>
+			<option>increase</option>
+			<option>same</option>
+		</select>
+	</p>
+	<p>
+		<label>During the next few hours, what to you expect yoru activity level to be?</label>
+		<select id="activity">
+			<option>low</option>
+			<option>moderate</option>
+			<option>high</option>
+			<option>sleep</option>
+		</select>
+	</p>
+	<p>
+		<button>Submit</button>
+	</p>
+</div>
+<div style="width: 50%; padding: 0 20px; border: 1px solid">
+	<h2>Result: <span class="prediction"></span></h2>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	$("button").click(function() {
+		doIt();
+	});
+	var doIt = function() {
+		console.log("Clicked!");
+		$(".prediction").html("Loading...");
+		$.post("predict.php", {
+			hours: $("#hours").val(),
+			leak: $("#leak").val(),
+			discomfort: $("#discomfort").val(),
+			flow: $("#flow").val(),
+			activity: $("#activity").val()
+		}, function(result) {
+			console.log("Got it!");
+			if (result == "decrease") {
+				$(".prediction").html('Consider decreasing the absorbency of your next tampon to reduce your removal comfort.');
+			} else if (result == "increase") {
+				$(".prediction").html('Consider using the same absorbency for your next tampon, but wearing it for longer than 3 hours (no longer than 8) to reduce your removal discomfort.');
+			} else if (result == "same") {
+				$(".prediction").html('Consider using the same absorbency for your next tampon.');
+			} else if (result == "less") {
+				$(".prediction").html('Consider using the same absorbency for your next tampon, but wearing it for less than 3 hours, to address the leakage you&rsquo;ve experienced.');
+			} else if (result == "increase") {
+				$(".prediction").html('Consider increasing the absorbency of your next tampon to address the leakage you&rsquo;ve experienced.');
+			} else if (result == "error") {
+				doIt();
+			} else {
+				$(".prediction").html(result);
+			} 
+		});
+	};
+</script>

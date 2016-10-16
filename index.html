@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Naari</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="onsenui.js"></script>
+		<script src="ui.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="onsenui.css">
+		<link rel="stylesheet" type="text/css" href="onsen-css-components.css">
+		<link rel="stylesheet" type="text/css" href="custom.css">
+		<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="icons/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="icons/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="icons/manifest.json">
+		<link rel="shortcut icon" href="icons/favicon.ico">
+		<meta name="msapplication-config" content="icons/browserconfig.xml">
+		<meta name="theme-color" content="#ffffff">
+	</head>
+	
+	<body data-device-back-button-handler-id="0" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+
+		<div class="loader"><img alt="" src="data:image/png;base64,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"></div>
+
+		<ons-tabbar>
+			<ons-tab label="Health" icon="heart" page="health" active></ons-tab>
+			<ons-tab label="Express" icon="comments" page="express"></ons-tab>
+			<ons-tab label="Settings" icon="cog" page="settings"></ons-tab>
+		</ons-tabbar>
+
+			<ons-template id="health">
+			  <ons-page id="page1">
+			    <ons-toolbar>
+					<div class="center">Health</div>
+				</ons-toolbar>
+
+				<p style="text-align:center;padding:20px;"><span class="good-w">Good morning</span>, Scarlett!<br>What do you feel like doing?</p>
+
+				<ons-list>
+					<ons-list-item modifier="longdivider">
+						<div class="left" style="margin: 0 5px; font-size: 175%; width: 50px; text-align: center">
+							<ons-icon icon="female"></ons-icon>
+						</div>
+						<div class="center">
+							<span class="list__item__title" style="margin-top: 5px"><a href="tampon.html">Tampon Recommendations</a></span>
+							<span class="list__item__subtitle" style="margin: 5px 0"><a href="tampon.html">Get personalized recommendations about which tampons to use.</a></span>
+						</div>
+					</ons-list-item>
+					<ons-list-item modifier="longdivider">
+						<div class="left" style="margin: 0 5px; font-size: 175%; width: 50px; text-align: center">
+							<ons-icon icon="book"></ons-icon>
+						</div>
+						<div class="center">
+							<span class="list__item__title" style="margin-top: 5px"><a href="news.html">Reading List</a></span>
+							<span class="list__item__subtitle" style="margin: 5px 0"><a href="news.html">Your daily curated list of women's health articles and stories.</a></span>
+						</div>
+					</ons-list-item>
+					<ons-list-item modifier="longdivider">
+						<div class="left" style="margin: 0 5px; font-size: 175%; width: 50px; text-align: center; color: #ff3b30;">
+							<ons-icon icon="medkit"></ons-icon>
+						</div>
+						<div class="center">
+							<span class="list__item__title" style="margin-top: 5px; color: #ff3b30"><a href="emergency.html">Emergency</a></span>
+							<span class="list__item__subtitle" style="margin: 5px 0"><a href="emergency.html">Tap here to send your current location to your emergency contacts.</a></span>
+						</div>
+					</ons-list-item>
+				</ons-list>
+
+			  </ons-page>
+			</ons-template>
+
+		<ons-template id="express">
+			<ons-page>
+				<ons-toolbar>
+					<div class="center">Express</div>
+					<div class="right">
+						<ons-toolbar-button>
+							<a href="emergency.html"><ons-icon icon="medkit" class="emergency-icon"></ons-icon></a>
+						</ons-toolbar-button>
+					</div>
+				</ons-toolbar>
+				<div class="two-options">
+					<a href="chat.html#My_Doctor" class="option-1">
+						<ons-icon icon="user-md"></ons-icon>
+						<div class="center">My Doctor</div>
+					</a>
+					<a href="chat.html#Anonymous" class="option-2">
+						<ons-icon icon="users"></ons-icon>
+						<div class="center">Group</div>
+					</a>
+				</div>
+				<ons-list>
+					<ons-list-header>Friends</ons-list-header>
+					<ons-list-item modifier="longdivider">
+						<div class="left">
+							<a href="chat.html#Colleen_Moreno"><img class="list__item__thumbnail" src="https://randomuser.me/api/portraits/women/9.jpg"></a>
+						</div>
+						<div class="center">
+							<span class="list__item__title"><a href="chat.html#Colleen_Moreno">Colleen Moreno</a></span>
+							<span class="list__item__subtitle"><a href="chat.html#Colleen_Moreno"><span class="circle green"></span>Active just now</a></span>
+						</div>
+					</ons-list-item>
+					<ons-list-item modifier="longdivider">
+						<div class="left">
+							<a href="chat.html#Ann_Bennett"><img class="list__item__thumbnail" src="https://randomuser.me/api/portraits/women/80.jpg"></a>
+						</div>
+						<div class="center">
+							<span class="list__item__title"><a href="chat.html#Ann_Bennett">Ann Bennett</a></span>
+							<span class="list__item__subtitle"><a href="chat.html#Ann_Bennett"><span class="circle green"></span>Active just now</a></span>
+						</div>
+					</ons-list-item>
+					<ons-list-item modifier="longdivider">
+						<div class="left">
+							<a href="chat.html#Sharlene_Jones"><img class="list__item__thumbnail" src="https://randomuser.me/api/portraits/women/21.jpg"></a>
+						</div>
+						<div class="center">
+							<span class="list__item__title"><a href="chat.html#Sharlene_Jones">Sharlene Jones</a></span>
+							<span class="list__item__subtitle"><a href="chat.html#Sharlene_Jones"><span class="circle yellow"></span>Active 5 minutes ago</a></span>
+						</div>
+					</ons-list-item>
+					<ons-list-item modifier="longdivider">
+						<div class="left">
+							<a href="chat.html#Cassandra_Dunn"><img class="list__item__thumbnail" src="https://randomuser.me/api/portraits/women/38.jpg"></a>
+						</div>
+						<div class="center">
+							<span class="list__item__title"><a href="chat.html#Cassandra_Dunn">Cassandra Dunn</a></span>
+							<span class="list__item__subtitle"><a href="chat.html#Cassandra_Dunn"><span class="circle yellow"></span>Active 8 minutes ago</a></span>
+						</div>
+					</ons-list-item>
+					<ons-list-item modifier="longdivider">
+						<div class="left">
+							<a href="chat.html#Norma_Howard"><img class="list__item__thumbnail" src="https://randomuser.me/api/portraits/women/20.jpg"></a>
+						</div>
+						<div class="center">
+							<span class="list__item__title"><a href="chat.html#Norma_Howard">Norma Howard</a></span>
+							<span class="list__item__subtitle"><a href="chat.html#Norma_Howard"><span class="circle yellow"></span>Active 8 minutes ago</a></span>
+						</div>
+					</ons-list-item>
+					<ons-list-item modifier="longdivider">
+						<div class="left">
+							<a href="chat.html#Tara_Nguyen"><img class="list__item__thumbnail" src="https://randomuser.me/api/portraits/women/42.jpg"></a>
+						</div>
+						<div class="center">
+							<span class="list__item__title"><a href="chat.html#Tara_Nguyen">Tara Nguyen</a></span>
+							<span class="list__item__subtitle"><a href="chat.html#Tara_Nguyen"><span class="circle"></span>Active 2 hours ago</a></span>
+						</div>
+					</ons-list-item>
+					<ons-list-item modifier="longdivider">
+						<div class="left">
+							<a href="chat.html#Avery_Garza"><img class="list__item__thumbnail" src="https://randomuser.me/api/portraits/women/7.jpg"></a>
+						</div>
+						<div class="center">
+							<span class="list__item__title"><a href="chat.html#Avery_Garza">Avery Garza</a></span>
+							<span class="list__item__subtitle"><a href="chat.html#Avery_Garza"><span class="circle"></span>Active 2 hours ago</a></span>
+						</div>
+					</ons-list-item>
+					<ons-list-item modifier="longdivider">
+						<div class="left">
+							<a href="chat.html#Serenity_Cunningham"><img class="list__item__thumbnail" src="https://randomuser.me/api/portraits/women/2.jpg"></a>
+						</div>
+						<div class="center">
+							<span class="list__item__title">Serenity<a href="chat.html#Serenity_Cunningham"> Cunningham</a></span>
+							<span class="list__item__subtitle"><a href="chat.html#Serenity_Cunningham"><span class="circle"></span>Active 3 hours ago</a></span>
+						</div>
+					</ons-list-item>
+					<ons-list-item modifier="longdivider">
+						<div class="left">
+							<a href="chat.html#Josephine_Bryant"><img class="list__item__thumbnail" src="https://randomuser.me/api/portraits/women/12.jpg"></a>
+						</div>
+						<div class="center">
+							<span class="list__item__title"><a href="chat.html#Josephine_Bryant">Josephine Bryant</a></span>
+							<span class="list__item__subtitle"><a href="chat.html#Josephine_Bryant"><span class="circle"></span>Active 4 hours ago</a></span>
+						</div>
+					</ons-list-item>
+				</ons-list>
+			</ons-page>
+		</ons-template>
+
+		<ons-template id="settings">
+			<ons-page>
+				<ons-toolbar>
+					<div class="center">Settings</div>
+					<div class="right">
+						<ons-toolbar-button>
+							<a href="emergency.html"><ons-icon icon="medkit" class="emergency-icon"></ons-icon></a>
+						</ons-toolbar-button>
+					</div>
+				</ons-toolbar>
+				<ons-list>
+					<ons-list-header>General</ons-list-header>
+					<ons-list-item modifier="longdivider">
+						<div class="left">
+							<img class="list__item__thumbnail" src="https://randomuser.me/api/portraits/women/24.jpg">
+						</div>
+						<div class="center">
+							<span class="list__item__title">Scarlett Cox</span>
+							<span class="list__item__subtitle">19 years young</span>
+						</div>
+					</ons-list-item>
+					<ons-list-item>
+						<div class="center">Location History</div>
+						<div class="right"><ons-switch checked></ons-switch></div>
+					</ons-list-item>
+					<ons-list-item>My Doctors</ons-list-item>
+					<ons-list-item>
+						<div class="center">Emergency Contact</div>
+						<div class="right">Father</div>
+					</ons-list-item>
+					<ons-list-item>Past Reports</ons-list-item>
+				</ons-list>
+				<ons-list>
+					<ons-list-header>App Settings</ons-list-header>
+					<ons-list-item>Connected Devices</ons-list-item>
+					<ons-list-item>
+						<div class="center">Payment Information</div>
+						<div class="right">Paytm Wallet</div>
+					</ons-list-item>
+					<ons-list-item tappable onclick="showDialog('about-dialog')">About</ons-list-item>
+					<ons-list-item tappable onclick="ons.notification.confirm({message: 'Are you sure you want to delete your account?'})"><div style="color: #ff3b30">Delete My Account</div></ons-list-item>
+				</ons-list>
+				<ons-alert-dialog id="about-dialog">
+					<div class="alert-dialog-title">About</div>
+					<div class="alert-dialog-content">
+						<p>Made with &hearts; at Lady Problems Delhi 2016 by Anand Chowdhary and Nishant Gadihoke to make healthcare accessible to women everywhere.</p>
+					</div>
+					<div class="alert-dialog-footer">
+						<button class="alert-dialog-button" onclick="hideDialog('about-dialog')">Okay, great!</button>
+					</div>
+				</ons-alert-dialog>
+			</ons-page>
+		</ons-template>
+
+		<ons-template id="emergency">
+			<ons-page>
+				<ons-toolbar>
+					<div class="center">Emergency</div>
+				</ons-toolbar>
+				<p>Push</p>
+			</ons-page>
+		</ons-template>
+
+		<script>
+			window.onload = function() {
+				setTimeout(function() {
+					$(".loader").fadeOut();
+				}, 500);
+			}
+			var today = new Date(); var curHr = today.getHours();
+			if (curHr < 12) {
+				$(".good-w").html('Good morning');
+			} else if (curHr < 18) {
+				$(".good-w").html('Good afternoon');
+			} else {
+				$(".good-w").html('Good evening');
+			}
+		</script>
+
+	</body>
+</html>

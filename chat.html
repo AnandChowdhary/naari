@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Baemax</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="onsenui.js"></script>
+		<script src="ui.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="onsenui.css">
+		<link rel="stylesheet" type="text/css" href="onsen-css-components.css">
+		<link rel="stylesheet" type="text/css" href="custom.css">
+	</head>
+	<body data-device-back-button-handler-id="0" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+
+		<ons-page>
+
+			<ons-toolbar>
+				<div class="left">
+					<ons-toolbar-button><a href="index.html"><ons-icon icon="times"></ons-icon></a></ons-toolbar-button>
+				</div>
+				<div class="center">Emergency</div>
+			</ons-toolbar>
+
+			<p class="no-chat" style="padding: 30px; text-align: center;">To start chatting with <span class="person-name">User</span>, write a message below...</p>
+
+			<div class="messages"></div>
+
+			<div class="bottom-field">
+				<input class="message-text" type="text" placeholder="Write your message...">
+				<button class="send-button"><i class="fa fa-paper-plane"></i></button>
+			</div>
+
+		</ons-page>
+
+		<script>
+			var hash = window.location.hash;
+			$.post("data/chat.php", {
+				with: hash.replace("#", ""),
+			}, function(result) {
+				if (result != "") {
+					$(".messages").html(result);
+					$(".no-chat").hide();
+					$(".page__content").scrollTop($(".page__content")[0].scrollHeight);
+				}
+			});
+			setInterval(function() {
+				$.post("data/chat.php", {
+					with: hash.replace("#", ""),
+				}, function(result) {
+					if (result != "") {
+						$(".messages").html(result);
+						$(".no-chat").hide();
+						$(".page__content").scrollTop($(".page__content")[0].scrollHeight);
+					}
+				});
+			}, 2000);
+			$("ons-toolbar .center, .person-name").html(hash.replace("#", "").replace("_", " "));
+			$(".message-text").on("keyup", function (e) { if (e.keyCode == 13) { $(".send-button").click(); } });
+			$(".send-button").click(function() {
+				if ($(".message-text").val() != "") {
+					$(".no-chat").hide();
+					$(".messages").append("<div class='message message-mine'></div>");
+					var message_it = $(".message-text").val();
+					message_it = message_it.replace(/\</g,"&lt;");
+					message_it = message_it.replace(/\>/g,"&gt;");
+					$(".messages .message-mine:last-child").append("<div>" + message_it + "</div>");
+					$(".page__content").scrollTop($(".page__content")[0].scrollHeight);
+					$.post("data/send.php", {
+						to: hash.replace("#", ""),
+						message: $(".message-text").val()
+					}, function(result) {
+						$(".message-text").val("");
+					});
+				}
+			});
+		</script>
+
+	</body>
+</html>

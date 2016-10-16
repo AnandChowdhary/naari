@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Naari</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="onsenui.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<link rel="stylesheet" type="text/css" href="onsenui.css">
+		<link rel="stylesheet" type="text/css" href="onsen-css-components.css">
+		<link rel="stylesheet" type="text/css" href="custom.css">
+	</head>
+	<body data-device-back-button-handler-id="0" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+	
+	<ons-page>
+  		<ons-toolbar>
+  			<div class="left"><a style="color: #007aff; text-decoration: none" href="index.html"><i class="ion-ios-arrow-left" style="margin:0 5px 0 7.5px;font-size:90%;"></i>Back</a></div>
+    		<div class="center">Let's Diagnose</div>
+  		</ons-toolbar>
+
+  	<form class="question-form">
+
+  		<div id="baapQuestion">
+
+  			<div class="questionSet" id="qs1">
+	  			<h2 class="question">For how many hours did you wear the tampon?</h2>
+	  			<div class="answerSet">
+					<div class="half">
+	  					<input type="radio" name="hours" id="q-1"><label for="q-1"><i class="ion-android-time green"></i>0 to 3</label>
+					</div>
+					<div class="half">
+	  					<input type="radio" name="hours" id="q-2"><label for="q-2"><i class="ion-android-time red"></i>More than 3</label>
+	  				</div>	
+	  			</div>
+	  		</div>
+
+	  		<div class="questionSet" id="qs2">
+	  			<h2 class="question">Did you experience a leak while wearing the tampon?</h2>
+	  			<div class="answerSet">
+					<div class="half">
+	  					<input type="radio" name="leak" id="q-3"><label for="q-3"><i class="ion-happy-outline green"></i>No</label>
+					</div>
+					<div class="half">
+	  					<input type="radio" name="leak" id="q-4"><label for="q-4"><i class="ion-sad-outline red"></i>Yes</label>
+	  				</div>	
+	  			</div>
+	  		</div>
+
+	  		<div class="questionSet" id="qs3">
+		  		<h2 class="question">Did you experience and discomfort during removal?</h2>
+		  		<div class="answerSet">
+					<div class="half">
+		  				<input type="radio" name="discomfort" id="q-5"><label for="q-5"><i class="ion-happy-outline green"></i>No</label>
+					</div>
+					<div class="half">
+		  				<input type="radio" name="discomfort" id="q-6"><label for="q-6"><i class="ion-sad-outline red"></i>Yes</label>
+		  			</div>	
+		  		</div>
+		  	</div>
+
+	  		<div class="questionSet m-no" id="qs4">
+	  			<h2 class="question">During the previous few hours, do you expect your flow to:</h2>
+	  			<div class="answerSet">
+					<div class="half">
+	  					<input type="radio" name="flow" id="q-7"><label for="q-7"><i class="ion-ios-pulse-strong green"></i>Decrease</label>
+					</div>
+					<div class="half">
+	  					<input type="radio" name="flow" id="q-8"><label for="q-8"><i class="ion-ios-pulse-strong red"></i>Increase</label>
+	  				</div>
+	  				<div class="full">
+	  					<input type="radio" name="flow" id="q-9"><label for="q-9"><i class="ion-ios-pulse-strong yellow"></i>Remain the same</label>
+					</div>
+	  			</div>
+	  		</div>
+
+	  		<div class="questionSet m-no" id="qs5">
+	  			<h2 class="question">During the previous few hours, what to you expect your activity level to be?</h2>
+	  			<div class="answerSet">
+					<div class="half">
+	  					<input type="radio" name="activity" id="q-10"><label for="q-10"><i class="ion-ios-pulse-strong green"></i>Decrease</label>
+					</div>
+					<div class="half">
+	  					<input type="radio" name="activity" id="q-11"><label for="q-11"><i class="ion-ios-pulse-strong red"></i>Increase</label>
+	  				</div>
+	  				<div class="half sec">
+	  					<input type="radio" name="activity" id="q-12"><label for="q-12"><i class="ion-ios-pulse-strong yellow"></i>Moderate</label>
+					</div>
+					<div class="half sec">
+	  					<input type="radio" name="activity" id="q-13"><label for="q-13"><i class="ion-ios-pulse-strong"></i>Sleep</label>
+	  				</div>
+	  			</div>
+	  		</div>
+		
+		<button class="submit">Submit</button>
+  			
+  		</div>
+		
+  	</form>
+
+  	<div class="prediction">
+  		<h4 class="prediction-text"></h4>
+
+  		<div class="recommend-container">
+  			<h5>We recommend that you try using this product:</h5>
+  			<div class="product" id="highAbsorbancy">
+  				<a target="_blank" href="https://www.amazon.com/Tampax-Pearl-Unscented-Absorbency-Tampons/dp/B004L5CW1U/ref=sr_1_1_s_it?s=hpc&ie=UTF8&qid=1476568762&sr=1-1&keywords=tampax+pearl+unscented+super+absorbency+tampons+96+count">
+	  				<img src="img/high_absorb.png" alt="" class="product-img">
+	  				<p class="product-title">Tampax Pearl Unscented Super Absorbency Tampons</p>
+	  				<p class="product-price">USD $13.88</p>
+	  			</a>
+  			</div>
+  			<div class="product" id="lowAbsorbancy">
+  				<a target="_blank" href="https://www.amazon.com/Tampax-Unscented-Tampons-Plastic-Applicator-20/dp/B00288Z4Q2/ref=sr_1_8_s_it?s=hpc&ie=UTF8&qid=1476568899&sr=1-8&keywords=tampax+pearl+compak">
+	  				<img src="img/low_absorb.png" alt="" class="product-img">
+	  				<p class="product-title">Tampax Pearl Active Light Absorbency Unscented Tampons</p>
+	  				<p class="product-price">USD $3.97</p>
+	  			</a>
+  			</div>
+  			<div class="product" id="mediumAbsorbancy">
+  				<a target="_blank" href="https://www.amazon.com/Tampax-Unscented-Tampons-Plastic-Applicator-20/dp/B00288Z4Q2/ref=sr_1_8_s_it?s=hpc&ie=UTF8&qid=1476568899&sr=1-8&keywords=tampax+pearl+compak">
+	  				<img src="img/medium_absorb.png" alt="" class="product-img">
+	  				<p class="product-title">Tampax Pearl Plastic Tampons Regular Absorbency</p>
+	  				<p class="product-price">USD $11.49</p>
+	  			</a>
+  			</div>
+  		</div>
+  		
+  	</div>
+
+	</ons-page>
+
+	<script src="ui.js"></script>
+	</body>
+</html>

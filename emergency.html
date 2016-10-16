@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Baemax</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="onsenui.js"></script>
+		<script src="ui.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="onsenui.css">
+		<link rel="stylesheet" type="text/css" href="onsen-css-components.css">
+		<link rel="stylesheet" type="text/css" href="custom.css">
+	</head>
+	<body data-device-back-button-handler-id="0" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+
+		<ons-page>
+
+			<ons-toolbar>
+				<div class="left">
+					<ons-toolbar-button><a href="index.html"><ons-icon icon="times"></ons-icon></a></ons-toolbar-button>
+				</div>
+				<div class="center">Emergency</div>
+			</ons-toolbar>
+
+			<p style="padding: 0 20px">Send your location to your emergency contact by pressing the button below.</p>
+
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7008.991148316641!2d77.2648058!3d28.55487780000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8f6adb4ec3f15246!2sThe+Founders+Cafe!5e0!3m2!1sen!2sin!4v1476539260855" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+			<ons-button onclick="ons.notification.alert({message: 'Sending your location to your emergency contact...'})" modifier="large" style="border-radius: 0; position: fixed; z-index: 1; bottom: 0; left: 0; right: 0">Send Location</ons-button>
+
+		</ons-page>
+
+	</body>
+</html>
