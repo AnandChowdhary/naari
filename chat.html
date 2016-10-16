@@ -71,6 +71,49 @@
 					}, function(result) {
 						$(".message-text").val("");
 					});
+					$.ajax({
+				        url: "https://api.havenondemand.com/1/api/sync/analyzesentiment/v2",
+				        type: "POST",
+				        data: { apikey: "e8228420-f010-474e-9c84-7ec658bcb422", text: $(".message-text").val()},
+				        dataType: "json",
+				        success: function (result) {
+				            switch (result.sentiment_analysis[0].aggregate.sentiment) {
+				                case true:
+				                    console.log(result.sentiment_analysis[0].aggregate.sentiment);
+				                     if (result.sentiment_analysis[0].aggregate.sentiment=="negative") {
+							        	ons.notification.confirm({
+										    message: 'You don\'t sound too well. Do you want to speak to your doctor?',
+										    buttonLabels: ["No", "Yes"],
+										    callback: function(e) {
+										     	if(e==1) {
+										     		window.location.href="#My_Doctor";
+										     		window.location.reload();
+										     	}
+										    }
+										  });
+							        }
+				                    break;
+				                default:
+				                    console.log(result.sentiment_analysis[0].aggregate.sentiment);
+				                     if (result.sentiment_analysis[0].aggregate.sentiment=="negative") {
+							        	ons.notification.confirm({
+										    message: 'You don\'t sound too well. Do you want to speak to your doctor?',
+										    buttonLabels: ["No", "Yes"],
+										    callback: function(e) {
+										      if(e==1) {
+										     		window.location.href="#My_Doctor";
+										     		window.location.reload();
+										     	}
+										    }
+										  });
+							        }
+				            }
+				        },
+				        error: function (xhr, ajaxOptions, thrownError) {
+				        alert(xhr.status);
+				        alert(thrownError);
+				        }
+				    });
 				}
 			});
 		</script>
