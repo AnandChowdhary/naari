@@ -1,2 +1,1 @@
-# baemax
-Name not final :)
+# Naari
